@@ -1,0 +1,88 @@
+---
+# Triage using examples from https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1564092020.pdf
+
+- name: Unix triage using Brian Olson example (see this yml for link)
+  hosts: unix
+  user: voyeurs
+  become: true
+
+  tasks:
+
+  # Use same evidence directory profile as from https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1564092020.pdf
+  - debug: 
+      msg: 
+        - "Collecting evidence into $pwd/artifacts/$hostname"
+        - "these are all quick so multithread the playbook with -f 5 or greater:"
+        - "ansible-playbook -f 5 PLAYBOOK.yml"
+    
+  - name: Make evidence collection directory ($pwd/artifacts)
+    local_action:
+      module: file
+      path: "artifacts/{{ inventory_hostname }}"
+      state: directory
+      recurse: yes
+
+  - name: Get kernel version (uname -a)
+    shell: "uname -a"
+    register: uname_result
+
+  - debug: msg="{{ uname_result.stdout }}"
+
+  - name: Write to local artifacts
+    local_action:
+      module: copy
+      content: "{{ uname_result.stdout }}"
+      dest: "artifacts/{{ inventory_hostname }}/uname-{{ansible_date_time.iso8601}}.txt"
+
+  - name: Get processes
+    shell: "ps -ef"
+    register: ps_result
+
+  - name: Write to local artifacts
+    local_action:
+      module: copy
+      content: "{{ ps_result.stdout }}"
+      dest: "artifacts/{{ inventory_hostname }}/processlist-{{ansible_date_time.iso8601}}.txt"
+
+  - name: Get netstat
+    shell: "netstat -ant"
+    register: netstat_result 
+
+  - name: Write to local artifacts
+    local_action:
+      module: copy
+      content: "{{ netstat_result.stdout }}"
+      dest: "artifacts/{{ inventory_hostname }}/netstat-{{ansible_date_time.iso8601}}.txt"
+
+  - name: Get users (/etc/passwd)
+    shell: "cat /etc/passwd"
+    register: passwd_result
+
+  - name: Write to local artifacts
+    local_action:
+      module: copy
+      content: "{{ passwd_result.stdout }}"
+      dest: "artifacts/{{ inventory_hostname }}/passwd-{{ansible_date_time.iso8601}}.txt"
+
+  - name: Get shadow (/etc/passwd)
+    shell: "cat /etc/shadow"
+    register: shadow_result
+
+  - name: Write to local artifacts
+    local_action:
+      module: copy
+      content: "{{ shadow_result.stdout }}"
+      dest: "artifacts/{{ inventory_hostname }}/shadow-{{ansible_date_time.iso8601}}.txt"
+
+  - name: Get packages
+    package_facts:
+      manager: auto
+    ignore_errors: True
+
+  - name: Write to local artifacts
+    local_action:
+      module: copy
+      content: "{{ ansible_facts.packages }}"
+      dest: "artifacts/{{ inventory_hostname }}/packages-{{ansible_date_time.iso8601}}.txt"
+    ignore_errors: True
+

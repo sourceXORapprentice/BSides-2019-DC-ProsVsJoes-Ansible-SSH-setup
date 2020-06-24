@@ -1,0 +1,184 @@
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Oct23 ?        00:00:17 /sbin/init
+root         2     0  0 Oct23 ?        00:00:00 [kthreadd]
+root         3     2  0 Oct23 ?        00:00:00 [migration/0]
+root         4     2  0 Oct23 ?        00:01:58 [ksoftirqd/0]
+root         5     2  0 Oct23 ?        00:00:00 [migration/0]
+root         6     2  0 Oct23 ?        00:00:00 [watchdog/0]
+root         7     2  0 Oct23 ?        00:00:00 [migration/1]
+root         8     2  0 Oct23 ?        00:00:00 [migration/1]
+root         9     2  0 Oct23 ?        00:03:41 [ksoftirqd/1]
+root        10     2  0 Oct23 ?        00:00:00 [watchdog/1]
+root        11     2  0 Oct23 ?        00:00:00 [migration/2]
+root        12     2  0 Oct23 ?        00:00:00 [migration/2]
+root        13     2  0 Oct23 ?        00:02:52 [ksoftirqd/2]
+root        14     2  0 Oct23 ?        00:00:00 [watchdog/2]
+root        15     2  0 Oct23 ?        00:00:00 [migration/3]
+root        16     2  0 Oct23 ?        00:00:00 [migration/3]
+root        17     2  0 Oct23 ?        00:02:26 [ksoftirqd/3]
+root        18     2  0 Oct23 ?        00:00:00 [watchdog/3]
+root        19     2  0 Oct23 ?        00:00:08 [events/0]
+root        20     2  0 Oct23 ?        00:00:09 [events/1]
+root        21     2  0 Oct23 ?        00:00:08 [events/2]
+root        22     2  0 Oct23 ?        00:00:10 [events/3]
+root        23     2  0 Oct23 ?        00:00:00 [cgroup]
+root        24     2  0 Oct23 ?        00:00:00 [khelper]
+root        25     2  0 Oct23 ?        00:00:00 [netns]
+root        26     2  0 Oct23 ?        00:00:00 [async/mgr]
+root        27     2  0 Oct23 ?        00:00:00 [pm]
+root        28     2  0 Oct23 ?        00:00:00 [sync_supers]
+root        29     2  0 Oct23 ?        00:00:00 [bdi-default]
+root        30     2  0 Oct23 ?        00:00:00 [kintegrityd/0]
+root        31     2  0 Oct23 ?        00:00:00 [kintegrityd/1]
+root        32     2  0 Oct23 ?        00:00:00 [kintegrityd/2]
+root        33     2  0 Oct23 ?        00:00:00 [kintegrityd/3]
+root        34     2  0 Oct23 ?        00:00:01 [kblockd/0]
+root        35     2  0 Oct23 ?        00:00:00 [kblockd/1]
+root        36     2  0 Oct23 ?        00:00:00 [kblockd/2]
+root        37     2  0 Oct23 ?        00:00:00 [kblockd/3]
+root        38     2  0 Oct23 ?        00:00:00 [kacpid]
+root        39     2  0 Oct23 ?        00:00:00 [kacpi_notify]
+root        40     2  0 Oct23 ?        00:00:00 [kacpi_hotplug]
+root        41     2  0 Oct23 ?        00:00:00 [ata/0]
+root        42     2  0 Oct23 ?        00:00:00 [ata/1]
+root        43     2  0 Oct23 ?        00:00:00 [ata/2]
+root        44     2  0 Oct23 ?        00:00:00 [ata/3]
+root        45     2  0 Oct23 ?        00:00:00 [ata_aux]
+root        46     2  0 Oct23 ?        00:00:00 [ksuspend_usbd]
+root        47     2  0 Oct23 ?        00:00:00 [khubd]
+root        48     2  0 Oct23 ?        00:00:00 [kseriod]
+root        49     2  0 Oct23 ?        00:00:00 [md/0]
+root        50     2  0 Oct23 ?        00:00:00 [md/1]
+root        51     2  0 Oct23 ?        00:00:00 [md/2]
+root        52     2  0 Oct23 ?        00:00:00 [md/3]
+root        53     2  0 Oct23 ?        00:00:00 [md_misc/0]
+root        54     2  0 Oct23 ?        00:00:00 [md_misc/1]
+root        55     2  0 Oct23 ?        00:00:00 [md_misc/2]
+root        56     2  0 Oct23 ?        00:00:00 [md_misc/3]
+root        57     2  0 Oct23 ?        00:00:00 [khungtaskd]
+root        58     2  0 Oct23 ?        00:00:00 [kswapd0]
+root        59     2  0 Oct23 ?        00:00:00 [ksmd]
+root        60     2  0 Oct23 ?        00:00:00 [khugepaged]
+root        61     2  0 Oct23 ?        00:00:00 [aio/0]
+root        62     2  0 Oct23 ?        00:00:00 [aio/1]
+root        63     2  0 Oct23 ?        00:00:00 [aio/2]
+root        64     2  0 Oct23 ?        00:00:00 [aio/3]
+root        65     2  0 Oct23 ?        00:00:00 [crypto/0]
+root        66     2  0 Oct23 ?        00:00:00 [crypto/1]
+root        67     2  0 Oct23 ?        00:00:00 [crypto/2]
+root        68     2  0 Oct23 ?        00:00:00 [crypto/3]
+root        73     2  0 Oct23 ?        00:00:00 [kthrotld/0]
+root        74     2  0 Oct23 ?        00:00:00 [kthrotld/1]
+root        75     2  0 Oct23 ?        00:00:00 [kthrotld/2]
+root        76     2  0 Oct23 ?        00:00:00 [kthrotld/3]
+root        78     2  0 Oct23 ?        00:00:00 [kpsmoused]
+root        79     2  0 Oct23 ?        00:00:00 [usbhid_resumer]
+root       110     2  0 Oct23 ?        00:00:00 [iscsi_eh]
+root       114     2  0 Oct23 ?        00:00:00 [cnic_wq]
+root       115     2  0 Oct23 ?        00:00:00 [bnx2i_thread/0]
+root       116     2  0 Oct23 ?        00:00:00 [bnx2i_thread/1]
+root       117     2  0 Oct23 ?        00:00:00 [bnx2i_thread/2]
+root       118     2  0 Oct23 ?        00:00:00 [bnx2i_thread/3]
+root       130     2  0 Oct23 ?        00:00:00 [kstriped]
+root       328     2  0 Oct23 ?        00:00:00 [scsi_eh_0]
+root       329     2  0 Oct23 ?        00:00:00 [scsi_eh_1]
+root       417     2  0 Oct23 ?        00:00:00 [scsi_eh_2]
+root       420     2  0 Oct23 ?        00:00:00 [virtio-net]
+root       455     2  0 Oct23 ?        00:00:00 [kdmflush]
+root       456     2  0 Oct23 ?        00:00:00 [kdmflush]
+root       477     2  0 Oct23 ?        00:00:06 [jbd2/dm-0-8]
+root       478     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       479     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       480     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       481     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       506     2  0 Oct23 ?        00:00:01 [flush-253:0]
+root       558     1  0 Oct23 ?        00:00:00 /sbin/udevd -d
+root       754     2  0 Oct23 ?        00:01:12 [vballoon]
+root       979     2  0 Oct23 ?        00:00:00 [jbd2/sda1-8]
+root       980     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       981     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       982     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root       983     2  0 Oct23 ?        00:00:00 [ext4-dio-unwrit]
+root      1051     2  0 Oct23 ?        00:00:00 [kauditd]
+root      1193     1  0 Oct23 ?        00:00:00 [scsi_eh_2]    
+root      1217     1  0 Oct23 ?        00:00:01 /sbin/smbd -D
+root      1218  1217  0 Oct23 ?        00:00:00 /sbin/smbd -D
+root      1220  1217  0 Oct23 ?        00:00:00 /sbin/smbd -D
+root      1269     1  0 Oct23 ?        00:00:01 auditd
+root      1292     1  0 Oct23 ?        00:00:03 /sbin/rsyslogd -i /var/run/syslogd.pid -c 5
+rpc       1315     1  0 Oct23 ?        00:00:00 rpcbind
+rpcuser   1333     1  0 Oct23 ?        00:00:00 rpc.statd
+root      1356     2  0 Oct23 ?        00:00:00 [rpciod/0]
+root      1357     2  0 Oct23 ?        00:00:00 [rpciod/1]
+root      1358     2  0 Oct23 ?        00:00:00 [rpciod/2]
+root      1359     2  0 Oct23 ?        00:00:00 [rpciod/3]
+root      1363     1  0 Oct23 ?        00:00:00 rpc.idmapd
+root      1384     1  0 Oct23 ?        00:00:14 lldpad -d
+root      1393     2  0 Oct23 ?        00:00:00 [scsi_tgtd/0]
+root      1394     2  0 Oct23 ?        00:00:00 [scsi_tgtd/1]
+root      1395     2  0 Oct23 ?        00:00:00 [scsi_tgtd/2]
+root      1396     2  0 Oct23 ?        00:00:00 [scsi_tgtd/3]
+root      1399     2  0 Oct23 ?        00:00:00 [fc_exch_workque]
+root      1400     2  0 Oct23 ?        00:00:00 [fc_rport_eq]
+root      1402     2  0 Oct23 ?        00:00:00 [fcoe_work/0]
+root      1403     2  0 Oct23 ?        00:00:00 [fcoe_work/1]
+root      1404     2  0 Oct23 ?        00:00:00 [fcoe_work/2]
+root      1405     2  0 Oct23 ?        00:00:00 [fcoe_work/3]
+root      1406     2  0 Oct23 ?        00:00:00 [fcoethread/0]
+root      1407     2  0 Oct23 ?        00:00:00 [fcoethread/1]
+root      1408     2  0 Oct23 ?        00:00:00 [fcoethread/2]
+root      1409     2  0 Oct23 ?        00:00:00 [fcoethread/3]
+root      1410     2  0 Oct23 ?        00:00:00 [bnx2fc]
+root      1411     2  0 Oct23 ?        00:00:00 [bnx2fc_l2_threa]
+root      1412     2  0 Oct23 ?        00:00:00 [bnx2fc_thread/0]
+root      1413     2  0 Oct23 ?        00:00:00 [bnx2fc_thread/1]
+root      1414     2  0 Oct23 ?        00:00:00 [bnx2fc_thread/2]
+root      1415     2  0 Oct23 ?        00:00:00 [bnx2fc_thread/3]
+root      1418     1  0 Oct23 ?        00:00:01 /usr/sbin/fcoemon --syslog
+root      1485     1  0 Oct23 ?        00:00:05 sendmail: accepting connections
+smmsp     1493     1  0 Oct23 ?        00:00:00 sendmail: Queue runner@01:00:00 for /var/spool/clientmqueue
+root      1502     1  0 Oct23 ?        00:00:00 crond
+root      1513     1  0 Oct23 ?        00:00:00 /usr/sbin/atd
+root      1525     1  0 Oct23 ?        00:00:08 /usr/sbin/atd
+root      1533     1  0 Oct23 ?        00:00:00 login -- root     
+root      1535     1  0 Oct23 tty2     00:00:00 /sbin/mingetty /dev/tty2
+root      1537     1  0 Oct23 tty3     00:00:00 /sbin/mingetty /dev/tty3
+root      1539     1  0 Oct23 tty4     00:00:00 /sbin/mingetty /dev/tty4
+root      1541     1  0 Oct23 tty5     00:00:00 /sbin/mingetty /dev/tty5
+root      1543     1  0 Oct23 tty6     00:00:00 /sbin/mingetty /dev/tty6
+root      1545   558  0 Oct23 ?        00:00:00 /sbin/udevd -d
+root      1546   558  0 Oct23 ?        00:00:00 /sbin/udevd -d
+root      6086     1  0 15:57 ?        00:00:00 sshd: voyeurs [priv]
+voyeurs   6088  6086  0 15:57 ?        00:00:00 sshd: voyeurs@pts/1
+voyeurs   6089  6088  0 15:57 pts/1    00:00:00 -bash
+root      8472  1193  0 16:18 ?        00:00:00 /bin/sh
+root      8549     1  0 16:18 ?        00:00:00 /usr/sbin/sshd
+root      8594  8549  0 16:18 ?        00:00:00 sshd: voyeurs [priv]
+voyeurs   8596  8594  0 16:18 ?        00:00:00 sshd: voyeurs@pts/0
+voyeurs   8597  8596  0 16:18 pts/0    00:00:00 -bash
+root      8644  8549  0 16:18 ?        00:00:00 sshd: voyeurs [priv]
+voyeurs   8646  8644  0 16:18 ?        00:00:00 sshd: voyeurs@pts/2
+voyeurs   8647  8646  0 16:18 pts/2    00:00:00 -bash
+root      9057  8549  0 16:24 ?        00:00:00 sshd: voyeurs [priv]
+voyeurs   9059  9057  0 16:24 ?        00:00:00 sshd: voyeurs@pts/3
+voyeurs   9060  9059  0 16:24 pts/3    00:00:00 -bash
+root     10128  1193  0 16:36 ?        00:00:00 /bin/sh
+root     10175  1193  0 16:39 ?        00:00:00 /bin/sh
+root     10181  1193  0 16:40 ?        00:00:00 /bin/sh
+root     10194  1193  0 16:40 ?        00:00:00 /bin/sh
+root     10260  1193  0 16:41 ?        00:00:00 /bin/sh
+root     10266  1193  0 16:41 ?        00:00:00 /bin/sh
+root     10317  1193  0 16:43 ?        00:00:00 /bin/sh
+root     10434  9060  0 16:48 pts/3    00:00:00 sudo -i
+root     10435 10434  0 16:48 pts/3    00:00:00 -bash
+root     10595  8549  0 16:50 ?        00:00:00 sshd: voyeurs [priv]
+voyeurs  10598 10595  0 16:50 ?        00:00:00 sshd: voyeurs@pts/4
+root     10674 10435  0 16:50 pts/3    00:00:00 nano /etc/passwd
+root     10686     1  0 16:50 ?        00:00:00 sleep 10
+voyeurs  10754 10598  0 16:50 pts/4    00:00:00 /bin/sh -c sudo -H -S -n -u root /bin/sh -c 'echo BECOME-SUCCESS-qteqxwpvhhbtdefxpnnfqtgnpxuhsicz; /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.5717504-37322760746482/AnsiballZ_command.py' && sleep 0
+root     10759 10754  0 16:50 pts/4    00:00:00 sudo -H -S -n -u root /bin/sh -c echo BECOME-SUCCESS-qteqxwpvhhbtdefxpnnfqtgnpxuhsicz; /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.5717504-37322760746482/AnsiballZ_command.py
+root     10760 10759  0 16:50 pts/4    00:00:00 /bin/sh -c echo BECOME-SUCCESS-qteqxwpvhhbtdefxpnnfqtgnpxuhsicz; /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.5717504-37322760746482/AnsiballZ_command.py
+root     10761 10760 14 16:50 pts/4    00:00:00 /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.5717504-37322760746482/AnsiballZ_command.py
+root     10762 10761  2 16:50 pts/4    00:00:00 ps -ef
+root     20340  1533  0 09:12 tty1     00:00:00 -bash
+root     20359     1  2 09:12 ?        00:09:53 morepipe

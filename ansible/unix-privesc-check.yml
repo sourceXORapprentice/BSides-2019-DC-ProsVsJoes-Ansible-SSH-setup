@@ -1,0 +1,65 @@
+---
+# Pushes the unix-privesc-check script from pentestmonkey.net,
+# scans results and save results locally in "upc-{{hostname}}.txt"
+# -sourcexorapprentice
+- name: Unix-privesc-check download and run as root
+  hosts: unix
+  user: voyeurs
+  become: true
+  vars:
+    unixprivesccheckver: 1.4
+
+  tasks:
+
+  - name: Check for unix-privesc-check
+    stat:
+      path: "/root/unix-privesc-check-{{unixprivesccheckver}}"
+    register: stat_reg
+
+  # Project on github:
+  # On the web: http://pentestmonkey.net/tools/unix-privesc-check/
+  - name: Copy over unix-privesc-check if doesn't exist
+    unarchive:
+      src: "unix-privesc-check-{{ unixprivesccheckver }}.tar.gz"
+      dest: /root
+    when: stat_reg.stat.exists == False        
+
+#  # Or just download the script over HTTP and run it as root, because YEEHAW!
+#  - name: Download unix-privesc-check if doesn't exist
+#    unarchive:
+#      src: "http://pentestmonkey.net/tools/unix-privesc-check/unix-privesc-check-{{ unixprivesccheckver }}.tar.gz"
+#      dest: /root
+#      remote_src: yes
+#    when: stat_reg.stat.exists == False        
+
+  # Use same evidence directory profile as from https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1564092020.pdf
+  - name: Make evidence collection directory ($pwd/artifacts)
+    local_action:
+      module: file
+      path: "artifacts/{{ inventory_hostname }}"
+      state: directory
+      recurse: yes
+
+  - name: Install unix-privesc-check dependencies
+    #Only tested on Ubuntu, which required the strings package in binutils
+    package:
+      name: binutils
+      state: present
+    when: stat_reg.stat.exists == False
+
+  - name: Run standard unix-privesc-check
+    shell: "/root/unix-privesc-check-{{unixprivesccheckver}}/unix-privesc-check standard | tee /root/unix-privesc-check-{{unixprivesccheckver}}/scan.txt"
+    register: scan_result
+
+  - name: Saving scan results locally to artifacts/hostname/upc_*.txt
+    local_action: 
+      module: copy
+      content: "{{ scan_result.stdout }}"
+      dest: "artifacts/{{ inventory_hostname }}/upc_{{ansible_date_time.iso8601}}.txt"
+
+  - name: Quick grep of scan results
+    shell: "cat /root/unix-privesc-check-{{unixprivesccheckver}}/scan.txt | grep -A4 WARNING"
+    register: scangrep
+
+  - debug: var=scangrep.stdout_lines
+

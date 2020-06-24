@@ -1,0 +1,162 @@
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Oct23 ?        00:00:07 /sbin/init
+root         2     0  0 Oct23 ?        00:00:00 [kthreadd]
+root         3     2  0 Oct23 ?        00:00:00 [ksoftirqd/0]
+root         5     2  0 Oct23 ?        00:00:00 [kworker/0:0H]
+root         7     2  0 Oct23 ?        00:00:04 [rcu_sched]
+root         8     2  0 Oct23 ?        00:00:00 [rcu_bh]
+root         9     2  0 Oct23 ?        00:00:00 [migration/0]
+root        10     2  0 Oct23 ?        00:00:00 [watchdog/0]
+root        11     2  0 Oct23 ?        00:00:00 [watchdog/1]
+root        12     2  0 Oct23 ?        00:00:00 [migration/1]
+root        13     2  0 Oct23 ?        00:00:00 [ksoftirqd/1]
+root        15     2  0 Oct23 ?        00:00:00 [kworker/1:0H]
+root        16     2  0 Oct23 ?        00:00:00 [watchdog/2]
+root        17     2  0 Oct23 ?        00:00:00 [migration/2]
+root        18     2  0 Oct23 ?        00:00:00 [ksoftirqd/2]
+root        20     2  0 Oct23 ?        00:00:00 [kworker/2:0H]
+root        21     2  0 Oct23 ?        00:00:00 [watchdog/3]
+root        22     2  0 Oct23 ?        00:00:00 [migration/3]
+root        23     2  0 Oct23 ?        00:00:00 [ksoftirqd/3]
+root        25     2  0 Oct23 ?        00:00:00 [kworker/3:0H]
+root        26     2  0 Oct23 ?        00:00:00 [kdevtmpfs]
+root        27     2  0 Oct23 ?        00:00:00 [netns]
+root        28     2  0 Oct23 ?        00:00:00 [perf]
+root        29     2  0 Oct23 ?        00:00:00 [khungtaskd]
+root        30     2  0 Oct23 ?        00:00:00 [writeback]
+root        31     2  0 Oct23 ?        00:00:00 [ksmd]
+root        32     2  0 Oct23 ?        00:00:01 [khugepaged]
+root        33     2  0 Oct23 ?        00:00:00 [crypto]
+root        34     2  0 Oct23 ?        00:00:00 [kintegrityd]
+root        35     2  0 Oct23 ?        00:00:00 [bioset]
+root        36     2  0 Oct23 ?        00:00:00 [kblockd]
+root        37     2  0 Oct23 ?        00:00:00 [ata_sff]
+root        38     2  0 Oct23 ?        00:00:00 [md]
+root        39     2  0 Oct23 ?        00:00:00 [devfreq_wq]
+root        45     2  0 Oct23 ?        00:00:00 [kswapd0]
+root        46     2  0 Oct23 ?        00:00:00 [vmstat]
+root        47     2  0 Oct23 ?        00:00:00 [fsnotify_mark]
+root        48     2  0 Oct23 ?        00:00:00 [ecryptfs-kthrea]
+root        64     2  0 Oct23 ?        00:00:00 [kthrotld]
+root        65     2  0 Oct23 ?        00:00:00 [acpi_thermal_pm]
+root        66     2  0 Oct23 ?        00:00:31 [vballoon]
+root        67     2  0 Oct23 ?        00:00:00 [bioset]
+root        68     2  0 Oct23 ?        00:00:00 [bioset]
+root        69     2  0 Oct23 ?        00:00:00 [bioset]
+root        70     2  0 Oct23 ?        00:00:00 [bioset]
+root        71     2  0 Oct23 ?        00:00:00 [bioset]
+root        72     2  0 Oct23 ?        00:00:00 [bioset]
+root        73     2  0 Oct23 ?        00:00:00 [bioset]
+root        74     2  0 Oct23 ?        00:00:00 [bioset]
+root        75     2  0 Oct23 ?        00:00:00 [scsi_eh_0]
+root        76     2  0 Oct23 ?        00:00:00 [scsi_tmf_0]
+root        77     2  0 Oct23 ?        00:00:00 [scsi_eh_1]
+root        78     2  0 Oct23 ?        00:00:00 [scsi_tmf_1]
+root        81     2  0 Oct23 ?        00:00:00 [bioset]
+root        85     2  0 Oct23 ?        00:00:00 [ipv6_addrconf]
+root        98     2  0 Oct23 ?        00:00:00 [deferwq]
+root        99     2  0 Oct23 ?        00:00:00 [charger_manager]
+root       141     2  0 Oct23 ?        00:00:00 [scsi_eh_2]
+root       142     2  0 Oct23 ?        00:00:00 [scsi_tmf_2]
+root       143     2  0 Oct23 ?        00:00:00 [bioset]
+root       152     2  0 Oct23 ?        00:00:00 [bioset]
+root       153     2  0 Oct23 ?        00:00:00 [bioset]
+root       154     2  0 Oct23 ?        00:00:00 [bioset]
+root       155     2  0 Oct23 ?        00:00:00 [bioset]
+root       157     2  0 Oct23 ?        00:00:00 [bioset]
+root       158     2  0 Oct23 ?        00:00:00 [bioset]
+root       160     2  0 Oct23 ?        00:00:00 [bioset]
+root       162     2  0 Oct23 ?        00:00:00 [bioset]
+root       167     2  0 Oct23 ?        00:00:00 [kpsmoused]
+root       307     2  0 Oct23 ?        00:00:00 [ttm_swap]
+root       489     2  0 Oct23 ?        00:00:00 [raid5wq]
+root       513     2  0 Oct23 ?        00:00:00 [kdmflush]
+root       515     2  0 Oct23 ?        00:00:00 [bioset]
+root       524     2  0 Oct23 ?        00:00:00 [kdmflush]
+root       525     2  0 Oct23 ?        00:00:00 [bioset]
+root       537     2  0 Oct23 ?        00:00:00 [bioset]
+root       540     2  0 Oct23 ?        00:00:00 [kworker/3:1H]
+root       559     2  0 Oct23 ?        00:00:00 [kworker/2:1H]
+root       565     2  0 Oct23 ?        00:00:00 [jbd2/dm-0-8]
+root       566     2  0 Oct23 ?        00:00:00 [ext4-rsv-conver]
+root       621     1  0 Oct23 ?        00:00:01 /lib/systemd/systemd-journald
+root       646     2  0 Oct23 ?        00:00:00 [kauditd]
+root       651     2  0 Oct23 ?        00:00:00 [iscsi_eh]
+root       657     2  0 Oct23 ?        00:00:00 [kworker/0:1H]
+root       662     2  0 Oct23 ?        00:00:00 [ib_addr]
+root       665     1  0 Oct23 ?        00:00:00 /sbin/lvmetad -f
+root       667     2  0 Oct23 ?        00:00:00 [ib_mcast]
+root       668     2  0 Oct23 ?        00:00:00 [ib_nl_sa_wq]
+root       669     2  0 Oct23 ?        00:00:00 [ib_cm]
+root       671     2  0 Oct23 ?        00:00:00 [iw_cm_wq]
+root       673     2  0 Oct23 ?        00:00:00 [rdma_cm]
+root       689     1  0 Oct23 ?        00:00:01 /lib/systemd/systemd-udevd
+root       951     2  0 Oct23 ?        00:00:00 [ext4-rsv-conver]
+systemd+   981     1  0 Oct23 ?        00:00:00 /lib/systemd/systemd-timesyncd
+message+  1115     1  0 Oct23 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+daemon    1177     1  0 Oct23 ?        00:00:00 /usr/sbin/atd -f
+root      1180     1  0 Oct23 ?        00:00:03 /usr/lib/accountsservice/accounts-daemon
+root      1183     1  0 Oct23 ?        00:00:00 /usr/sbin/cron -f
+root      1185     1  0 Oct23 ?        00:00:00 /lib/systemd/systemd-logind
+root      1187     1  0 Oct23 ?        00:00:02 /usr/bin/lxcfs /var/lib/lxcfs/
+syslog    1189     1  0 Oct23 ?        00:00:00 /usr/sbin/rsyslogd -n
+root      1193     1  0 Oct23 ?        00:00:00 /usr/sbin/acpid
+root      1198     1  0 Oct23 ?        00:00:10 /usr/lib/snapd/snapd
+root      1253     1  0 Oct23 ?        00:00:00 /sbin/mdadm --monitor --pid-file /run/mdadm/monitor.pid --daemonise --scan --syslog
+root      1281     1  0 Oct23 ?        00:00:04 /sbin/iscsid
+root      1282     1  0 Oct23 ?        00:00:21 /sbin/iscsid
+mysql     1327     1  0 Oct23 ?        00:01:13 /usr/sbin/mysqld
+root      1362     1  0 Oct23 ?        00:00:04 /usr/sbin/irqbalance --pid=/var/run/irqbalance.pid
+root      1374     1  0 Oct23 tty1     00:00:00 /bin/login --
+root      1383     1  0 Oct23 ?        00:00:00 /usr/lib/policykit-1/polkitd --no-debug
+root      1432     2  0 Oct23 ?        00:00:00 [kworker/1:1H]
+root      1494     1  0 Oct23 ?        00:00:06 /usr/sbin/apache2 -k start
+www-data  5010  1494  0 06:25 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data  5011  1494  0 06:25 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data  5012  1494  0 06:25 ?        00:00:01 /usr/sbin/apache2 -k start
+www-data  5013  1494  0 06:25 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data  5014  1494  0 06:25 ?        00:00:00 /usr/sbin/apache2 -k start
+root      5539     1  0 09:11 ?        00:00:00 /lib/systemd/systemd --user
+root      5543  5539  0 09:11 ?        00:00:00 (sd-pam)
+root      5548  1374  0 09:11 tty1     00:00:00 -bash
+root      6055     1  0 11:31 ?        00:00:00 [scsi_eh_2]
+root      6063     1  0 11:31 ?        00:00:07 /usr/sbin/atd
+root      6564     2  0 13:13 ?        00:00:00 [kworker/0:2]
+www-data  6631  1494  0 13:31 ?        00:00:00 /usr/sbin/apache2 -k start
+root      7797     1  0 14:52 ?        00:00:00 [bioset]
+root      8544     2  0 14:57 ?        00:00:00 [kworker/1:2]
+www-data  8700  1494  0 15:03 ?        00:00:00 /usr/sbin/apache2 -k start
+root      8725     1  0 15:05 ?        00:00:00 sshd: root@pts/2
+root      8766  8725  0 15:05 pts/2    00:00:00 -bash
+www-data  8817  1494  0 15:08 ?        00:00:00 /usr/sbin/apache2 -k start
+root      9256     2  0 15:36 ?        00:00:00 [kworker/2:1]
+root      9257     2  0 15:36 ?        00:00:00 [kworker/3:2]
+root      9339     1  0 15:46 ?        00:00:00 sshd: root@pts/0
+root      9380  9339  0 15:47 pts/0    00:00:00 -bash
+root      9645     1  0 15:52 ?        00:00:00 /usr/sbin/sshd -D
+root      9651     2  0 15:52 ?        00:00:00 [kworker/1:1]
+root      9717     2  0 15:52 ?        00:00:00 [kworker/0:0]
+www-data 10638  1494  0 16:01 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data 10639  1494  0 16:01 ?        00:00:00 /usr/sbin/apache2 -k start
+root     10722     2  0 16:15 ?        00:00:00 [kworker/u8:0]
+root     10917  9645  0 16:29 ?        00:00:00 sshd: voyeurs [priv]
+voyeurs  10919     1  0 16:29 ?        00:00:00 /lib/systemd/systemd --user
+root     10921     2  0 16:29 ?        00:00:00 [kworker/3:0]
+voyeurs  10923 10919  0 16:29 ?        00:00:00 (sd-pam)
+root     10925     2  0 16:29 ?        00:00:00 [kworker/2:0]
+voyeurs  10961 10917  0 16:29 ?        00:00:00 sshd: voyeurs@pts/1
+voyeurs  10962 10961  0 16:29 pts/1    00:00:00 -bash
+root     10979 10962  0 16:29 pts/1    00:00:00 sudo su -
+root     10980 10979  0 16:29 pts/1    00:00:00 su -
+root     10981 10980  0 16:29 pts/1    00:00:00 -su
+root     11075     2  0 16:40 ?        00:00:00 [kworker/u8:1]
+root     11105     2  0 16:49 ?        00:00:00 [kworker/u8:2]
+root     11108  9645  0 16:50 ?        00:00:00 sshd: voyeurs [priv]
+root     11111     2  0 16:50 ?        00:00:00 [kworker/3:1]
+voyeurs  11191 11108  0 16:50 ?        00:00:00 sshd: voyeurs@pts/3
+voyeurs  11273 11191  0 16:51 pts/3    00:00:00 /bin/sh -c sudo -H -S -n -u root /bin/sh -c 'echo BECOME-SUCCESS-izkbsmkumbbavmykazuzesxletbwupce; /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.4591095-99212779044341/AnsiballZ_command.py' && sleep 0
+root     11274 11273  0 16:51 pts/3    00:00:00 sudo -H -S -n -u root /bin/sh -c echo BECOME-SUCCESS-izkbsmkumbbavmykazuzesxletbwupce; /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.4591095-99212779044341/AnsiballZ_command.py
+root     11275 11274  0 16:51 pts/3    00:00:00 /bin/sh -c echo BECOME-SUCCESS-izkbsmkumbbavmykazuzesxletbwupce; /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.4591095-99212779044341/AnsiballZ_command.py
+root     11276 11275  0 16:51 pts/3    00:00:00 /usr/bin/python /home/voyeurs/.ansible/tmp/ansible-tmp-1572036665.4591095-99212779044341/AnsiballZ_command.py
+root     11277 11276  0 16:51 pts/3    00:00:00 /bin/sh -c ps -ef
+root     11278 11277  0 16:51 pts/3    00:00:00 ps -ef

@@ -1,0 +1,29 @@
+---
+# Triage using examples from https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1564092020.pdf
+
+- name: Unix updater using Brian Olson example (see this yml for link)
+  hosts: unix
+  user: voyeurs
+  become: true
+
+  tasks:
+
+  - name: Upgrade common packages
+    become: true
+    package:
+      name: "{{ item }}"
+      update_cache: yes
+      state: latest
+    #Note: Will install packages if not present
+    with_items:
+      - default-jdk
+      - apache2
+      - mysql-server
+      - openssh-client
+      - openssh-server
+      - openssh-sftp-server
+      - php
+      - php-mysql
+      - python
+      - ufw
+    tags: phase_1

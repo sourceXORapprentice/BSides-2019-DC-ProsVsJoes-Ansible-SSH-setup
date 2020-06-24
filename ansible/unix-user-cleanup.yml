@@ -1,0 +1,60 @@
+---
+# playbook from wandog, user cleanup script to fix bash profiles, SSH config, etc.
+
+- name: User cleaner, use unix hosts and remote nopasswd sudo user with become
+  hosts: unix
+  user: voyeurs
+  become: yes
+
+  tasks: 
+  - name: Remove BashRC Files
+    file:
+      path: /home/voyeurs/.bashrc
+      state: absent
+  - name: Remove BashRC Files
+    file:
+      path: /root/.bashrc
+      state: absent
+  - name: Remove Bashprofile Files
+    file:
+      path: /home/voyeurs/.bash_profile
+      state: absent
+  - name: Remove BashRC Files
+    file:
+      path: /root/.bash_profile
+      state: absent
+  - name: Remove rc.local
+    file:
+      path: /etc/rc.local
+      state: absent
+  - name: PvJ user
+    authorized_key:
+      user: voyeurs
+      state: present
+      exclusive: yes
+      key: "{{ lookup('file', 'voyeurs.pub') }}"
+
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?PermitRootLogin' line='PermitRootLogin no'   
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?PasswordAuthentication' line='PasswordAuthentication no'
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?ChallengeResponseAuthentication' line='ChallengeResponseAuthentication no'
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?PubkeyAuthentication' line='PubkeyAuthentication yes'   
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?AllowTcpForwarding' line='AllowTcpForwarding no'   
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?AllowAgentForwarding' line='AllowAgentForwarding no'   
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?X11Forwarding' line='X11Forwarding no'   
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?AllowUsers' line='AllowUsers voyeurs'   
+  - lineinfile: dest='/etc/ssh/sshd_config' regexp='^#?AuthorizedKeysFile' line='AuthorizedKeysFile      /home/voyeurs/.ssh/authorized_keys'   
+
+  - name: Get User info
+    getent:
+      database: passwd
+
+  - name: Set default shells
+    user:
+      name: "{{item.key}}"
+      shell: /bin/false
+    when: item.key != "root" and item.key != "voyeurs"
+    with_dict: "{{ getent_passwd }}"
+
+  - name: reload ssh service
+    service: name=ssh state=reloaded
+

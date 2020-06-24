@@ -1,0 +1,47 @@
+---
+# Ideas from triage using examples from https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1564092020.pdf
+
+- name: Unix updater 
+  hosts: unix
+  user: voyeurs
+  become: true
+
+  tasks:
+
+  - name: Gather package facts
+    package_facts:
+      manager: auto
+
+  - name: Print the package facts
+    debug:
+      var: ansible_facts.packages
+
+  - name: Print packages to screen
+    debug:
+      msg: "{{ ansible_facts.packages }}"
+
+  - name: Upgrade these commonly exposed packages, only when already installed
+    become: true
+    package:
+      name: "{{ item }}"
+      update_cache: yes
+      state: latest
+    with_items:
+      - apache2
+      - default-jdk
+      - httpd
+      - iptables
+      - mysql-server
+      - nginx
+      - openssh-client
+      - openssh-server
+      - openssh-sftp-server
+      - php
+      - php-mysql
+      - python
+      - tomcat7
+      - tomcat8
+      - tomcat9
+      - ufw
+    when: "item in ansible_facts.packages"
+    tags: phase_1

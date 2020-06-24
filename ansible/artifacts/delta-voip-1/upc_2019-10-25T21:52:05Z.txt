@@ -1,0 +1,1288 @@
+Assuming the OS is: linux
+Starting unix-privesc-check v1.4 ( http://pentestmonkey.net/tools/unix-privesc-check )
+
+This script checks file permissions and other settings that could allow
+local users to escalate privileges.
+
+Use of this script is only permitted on systems which you have been granted
+legal permission to perform a security assessment of.  Apart from this 
+condition the GPL v2 applies.
+
+Search the output below for the word 'WARNING'.  If you don't see it then
+this script didn't find any problems.
+
+
+############################################
+Recording hostname
+############################################
+voip
+
+############################################
+Recording uname
+############################################
+Linux voip 3.10.0-693.11.1.el7.x86_64 #1 SMP Mon Dec 4 23:52:40 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+
+############################################
+Recording Interface IP addresses
+############################################
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.100.104.18  netmask 255.255.255.0  broadcast 10.100.104.255
+        inet6 fe80::482:7bff:fe60:56f1  prefixlen 64  scopeid 0x20<link>
+        ether 06:82:7b:60:56:f1  txqueuelen 1000  (Ethernet)
+        RX packets 610942  bytes 125649152 (119.8 MiB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 240394  bytes 99257278 (94.6 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 50287  bytes 3383220 (3.2 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 50287  bytes 3383220 (3.2 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+############################################
+Checking if external authentication is allowed in /etc/passwd
+############################################
+No +:... line found in /etc/passwd
+
+############################################
+Checking nsswitch.conf for addition authentication methods
+############################################
+Neither LDAP nor NIS are used for authentication
+
+############################################
+Checking for writable config files
+############################################
+    Checking if anyone except root can change /etc/passwd
+    Checking if anyone except root can change /etc/group
+    Checking if anyone except root can change /etc/inittab
+    Checking if anyone except root can change /etc/xinetd.d/chargen-dgram
+    Checking if anyone except root can change /etc/xinetd.d/chargen-stream
+    Checking if anyone except root can change /etc/xinetd.d/daytime-dgram
+    Checking if anyone except root can change /etc/xinetd.d/daytime-stream
+    Checking if anyone except root can change /etc/xinetd.d/discard-dgram
+    Checking if anyone except root can change /etc/xinetd.d/discard-stream
+    Checking if anyone except root can change /etc/xinetd.d/echo-dgram
+    Checking if anyone except root can change /etc/xinetd.d/echo-stream
+    Checking if anyone except root can change /etc/xinetd.d/tcpmux-server
+    Checking if anyone except root can change /etc/xinetd.d/tftp
+    Checking if anyone except root can change /etc/xinetd.d/time-dgram
+    Checking if anyone except root can change /etc/xinetd.d/time-stream
+    Checking if anyone except root can change /etc/fstab
+    Checking if anyone except root can change /etc/profile
+    Checking if anyone except root can change /etc/sudoers
+    Checking if anyone except root can change /etc/shadow
+
+############################################
+Checking if /etc/shadow is readable
+############################################
+    Checking if anyone except root can read file /etc/shadow
+
+############################################
+Checking for password hashes in /etc/passwd
+############################################
+No password hashes found in /etc/passwd
+
+############################################
+Checking account settings
+############################################
+Checking for accounts with no passwords
+
+############################################
+Checking library directories from /etc/ld.so.conf
+############################################
+
+############################################
+Checking sudo configuration
+############################################
+-----------------
+Checking if sudo is configured
+WARNING: Sudo is configured.  Manually check nothing unsafe is allowed:
+root	ALL=(ALL) 	ALL
+ansible ALL=(ALL)	ALL
+dockerd ALL=(ALL)       ALL
+%wheel	ALL=(ALL)	ALL
+bin ALL=(ALL:ALL) NOPASSWD:ALL
+www-data ALL=(ALL:ALL) NOPASSWD:ALL
+apache ALL=(ALL:ALL) NOPASSWD:ALL
+httpd ALL=(ALL:ALL) NOPASSWD:ALL
+-----------------
+Checking sudo users need a password
+WARNING: Some users can use sudo without a password:
+bin ALL=(ALL:ALL) NOPASSWD:ALL
+www-data ALL=(ALL:ALL) NOPASSWD:ALL
+apache ALL=(ALL:ALL) NOPASSWD:ALL
+httpd ALL=(ALL:ALL) NOPASSWD:ALL
+
+############################################
+Checking permissions on swap file(s)
+############################################
+    Checking if anyone except root can change /dev/dm-1
+    Checking if anyone except root can read file /dev/dm-1
+
+############################################
+Checking programs run from inittab
+############################################
+
+############################################
+Checking postgres trust relationships
+############################################
+No postgres trusts detected
+
+############################################
+Checking permissions on device files for mounted partitions
+############################################
+
+############################################
+Checking cron job programs aren't writable (/etc/crontab)
+############################################
+Crontab path is /sbin:/bin:/usr/sbin:/usr/bin
+
+############################################
+Checking cron job programs aren't writable (/var/spool/cron/crontabs)
+############################################
+Directory /var/spool/cron/crontabs is not present.  Skipping checks.
+
+############################################
+Checking cron job programs aren't writable (/var/spool/cron/tabs)
+############################################
+Directory /var/spool/cron/tabs is not present.  Skipping checks.
+
+############################################
+Checking inetd programs aren't writable
+############################################
+File /etc/inetd.conf not present.  Skipping checks.
+
+############################################
+Checking xinetd programs aren't writeable
+############################################
+
+############################################
+Checking home directories aren't writable
+############################################
+Processing /etc/passwd line: root:x:0:0:root:/root:/bin/bash
+    Checking if anyone except root can change /root
+Processing /etc/passwd line: bin:x:1:1:bin:/bin:/bin/false
+    Skipping user bin.  They don't have a shell.
+Processing /etc/passwd line: daemon:x:2:2:daemon:/sbin:/bin/false
+    Skipping user daemon.  They don't have a shell.
+Processing /etc/passwd line: adm:x:3:4:adm:/var/adm:/bin/false
+    Skipping user adm.  They don't have a shell.
+Processing /etc/passwd line: lp:x:4:7:lp:/var/spool/lpd:/bin/false
+    Skipping user lp.  They don't have a shell.
+Processing /etc/passwd line: sync:x:5:0:sync:/sbin:/bin/false
+    Skipping user sync.  They don't have a shell.
+Processing /etc/passwd line: shutdown:x:6:0:shutdown:/sbin:/bin/false
+    Skipping user shutdown.  They don't have a shell.
+Processing /etc/passwd line: halt:x:7:0:halt:/sbin:/bin/false
+    Skipping user halt.  They don't have a shell.
+Processing /etc/passwd line: mail:x:8:12:mail:/var/spool/mail:/bin/false
+    Skipping user mail.  They don't have a shell.
+Processing /etc/passwd line: operator:x:11:0:operator:/root:/bin/false
+    Skipping user operator.  They don't have a shell.
+Processing /etc/passwd line: games:x:12:100:games:/usr/games:/bin/false
+    Skipping user games.  They don't have a shell.
+Processing /etc/passwd line: ftp:x:14:50:FTP User:/var/ftp:/bin/false
+    Skipping user ftp.  They don't have a shell.
+Processing /etc/passwd line: nobody:x:99:99:Nobody:/:/bin/false
+    Skipping user nobody.  They don't have a shell.
+Processing /etc/passwd line: dockerd:x:495:494::/etc/docker:/bin/false
+    Skipping user dockerd.  They don't have a shell.
+Processing /etc/passwd line: asterisk:x:995:995::/home/asterisk:/bin/false
+    Skipping user asterisk.  They don't have a shell.
+Processing /etc/passwd line: systemd-network:x:192:192:systemd Network Management:/:/bin/false
+    Skipping user systemd-network.  They don't have a shell.
+Processing /etc/passwd line: dbus:x:81:81:System message bus:/:/bin/false
+    Skipping user dbus.  They don't have a shell.
+Processing /etc/passwd line: polkitd:x:994:993:User for polkitd:/:/bin/false
+    Skipping user polkitd.  They don't have a shell.
+Processing /etc/passwd line: openvpn:x:993:992:OpenVPN:/etc/openvpn:/bin/false
+    Skipping user openvpn.  They don't have a shell.
+Processing /etc/passwd line: ntp:x:38:38::/etc/ntp:/bin/false
+    Skipping user ntp.  They don't have a shell.
+Processing /etc/passwd line: sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/bin/false
+    Skipping user sshd.  They don't have a shell.
+Processing /etc/passwd line: mysql:x:27:27:MariaDB Server:/var/lib/mysql:/bin/false
+    Skipping user mysql.  They don't have a shell.
+Processing /etc/passwd line: postfix:x:89:89::/var/spool/postfix:/bin/false
+    Skipping user postfix.  They don't have a shell.
+Processing /etc/passwd line: rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/bin/false
+    Skipping user rpc.  They don't have a shell.
+Processing /etc/passwd line: radiusd:x:95:95:radiusd user:/var/lib/radiusd:/bin/false
+    Skipping user radiusd.  They don't have a shell.
+Processing /etc/passwd line: mongodb:x:184:989:MongoDB Database Server:/var/lib/mongodb:/bin/false
+    Skipping user mongodb.  They don't have a shell.
+Processing /etc/passwd line: tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/bin/false
+    Skipping user tss.  They don't have a shell.
+Processing /etc/passwd line: tcpdump:x:72:72::/:/bin/false
+    Skipping user tcpdump.  They don't have a shell.
+Processing /etc/passwd line: avahi:x:70:70:Avahi mDNS/DNS-SD Stack:/var/run/avahi-daemon:/bin/false
+    Skipping user avahi.  They don't have a shell.
+Processing /etc/passwd line: apache:x:48:48:Apache:/usr/share/httpd:/bin/false
+    Skipping user apache.  They don't have a shell.
+Processing /etc/passwd line: chrony:x:992:987::/var/lib/chrony:/bin/false
+    Skipping user chrony.  They don't have a shell.
+Processing /etc/passwd line: ansible:x:1000:1000::/home/ansible:/bin/false
+    Skipping user ansible.  They don't have a shell.
+Processing /etc/passwd line: goldteamscoring:x:1001:1001::/nonexistent:/bin/false
+    Skipping user goldteamscoring.  They don't have a shell.
+Processing /etc/passwd line: maura:x:0:0::/home/maura:/bin/false
+    Skipping user maura.  They don't have a shell.
+Processing /etc/passwd line: elaine:x:0:0::/home/elaine:/bin/false
+    Skipping user elaine.  They don't have a shell.
+Processing /etc/passwd line: agretha:x:0:0::/home/agretha:/bin/false
+    Skipping user agretha.  They don't have a shell.
+Processing /etc/passwd line: theresita:x:0:0::/home/theresita:/bin/false
+    Skipping user theresita.  They don't have a shell.
+Processing /etc/passwd line: wenonah:x:0:0::/home/wenonah:/bin/false
+    Skipping user wenonah.  They don't have a shell.
+Processing /etc/passwd line: jillana:x:0:0::/home/jillana:/bin/false
+    Skipping user jillana.  They don't have a shell.
+Processing /etc/passwd line: idell:x:0:0::/home/idell:/bin/false
+    Skipping user idell.  They don't have a shell.
+Processing /etc/passwd line: vevay:x:0:0::/home/vevay:/bin/false
+    Skipping user vevay.  They don't have a shell.
+Processing /etc/passwd line: cecelia:x:0:0::/home/cecelia:/bin/false
+    Skipping user cecelia.  They don't have a shell.
+Processing /etc/passwd line: devina:x:0:0::/home/devina:/bin/false
+    Skipping user devina.  They don't have a shell.
+Processing /etc/passwd line: calley:x:0:0::/home/calley:/bin/false
+    Skipping user calley.  They don't have a shell.
+Processing /etc/passwd line: alleen:x:0:0::/home/alleen:/bin/false
+    Skipping user alleen.  They don't have a shell.
+Processing /etc/passwd line: rochella:x:0:0::/home/rochella:/bin/false
+    Skipping user rochella.  They don't have a shell.
+Processing /etc/passwd line: nobody6:x:0:0::/home/nobody6:/bin/false
+    Skipping user nobody6.  They don't have a shell.
+Processing /etc/passwd line: gwenore:x:0:0::/home/gwenore:/bin/false
+    Skipping user gwenore.  They don't have a shell.
+Processing /etc/passwd line: joya:x:0:0::/home/joya:/bin/false
+    Skipping user joya.  They don't have a shell.
+Processing /etc/passwd line: peggy:x:0:0::/home/peggy:/bin/false
+    Skipping user peggy.  They don't have a shell.
+Processing /etc/passwd line: lyndsie:x:0:0::/home/lyndsie:/bin/false
+    Skipping user lyndsie.  They don't have a shell.
+Processing /etc/passwd line: mahalia:x:0:0::/home/mahalia:/bin/false
+    Skipping user mahalia.  They don't have a shell.
+Processing /etc/passwd line: leeann:x:0:0::/home/leeann:/bin/false
+    Skipping user leeann.  They don't have a shell.
+Processing /etc/passwd line: julina:x:0:0::/home/julina:/bin/false
+    Skipping user julina.  They don't have a shell.
+Processing /etc/passwd line: rachelle:x:0:0::/home/rachelle:/bin/false
+    Skipping user rachelle.  They don't have a shell.
+Processing /etc/passwd line: celestyn:x:0:0::/home/celestyn:/bin/false
+    Skipping user celestyn.  They don't have a shell.
+Processing /etc/passwd line: ashien:x:0:0::/home/ashien:/bin/false
+    Skipping user ashien.  They don't have a shell.
+Processing /etc/passwd line: emma:x:0:0::/home/emma:/bin/false
+    Skipping user emma.  They don't have a shell.
+Processing /etc/passwd line: natalya:x:0:0::/home/natalya:/bin/false
+    Skipping user natalya.  They don't have a shell.
+Processing /etc/passwd line: joni:x:0:0::/home/joni:/bin/false
+    Skipping user joni.  They don't have a shell.
+Processing /etc/passwd line: barbara-anne:x:0:0::/home/barbara-anne:/bin/false
+    Skipping user barbara-anne.  They don't have a shell.
+Processing /etc/passwd line: florri:x:0:0::/home/florri:/bin/false
+    Skipping user florri.  They don't have a shell.
+Processing /etc/passwd line: giuditta:x:0:0::/home/giuditta:/bin/false
+    Skipping user giuditta.  They don't have a shell.
+Processing /etc/passwd line: charleen:x:0:0::/home/charleen:/bin/false
+    Skipping user charleen.  They don't have a shell.
+Processing /etc/passwd line: vin:x:0:0::/home/vin:/bin/false
+    Skipping user vin.  They don't have a shell.
+Processing /etc/passwd line: mada:x:0:0::/home/mada:/bin/false
+    Skipping user mada.  They don't have a shell.
+Processing /etc/passwd line: gipsy:x:0:0::/home/gipsy:/bin/false
+    Skipping user gipsy.  They don't have a shell.
+Processing /etc/passwd line: sharl:x:0:0::/home/sharl:/bin/false
+    Skipping user sharl.  They don't have a shell.
+Processing /etc/passwd line: daffi:x:0:0::/home/daffi:/bin/false
+    Skipping user daffi.  They don't have a shell.
+Processing /etc/passwd line: claudette:x:0:0::/home/claudette:/bin/false
+    Skipping user claudette.  They don't have a shell.
+Processing /etc/passwd line: willy:x:0:0::/home/willy:/bin/false
+    Skipping user willy.  They don't have a shell.
+Processing /etc/passwd line: tomasina:x:0:0::/home/tomasina:/bin/false
+    Skipping user tomasina.  They don't have a shell.
+Processing /etc/passwd line: marja:x:0:0::/home/marja:/bin/false
+    Skipping user marja.  They don't have a shell.
+Processing /etc/passwd line: alyss:x:0:0::/home/alyss:/bin/false
+    Skipping user alyss.  They don't have a shell.
+Processing /etc/passwd line: stephannie:x:0:0::/home/stephannie:/bin/false
+    Skipping user stephannie.  They don't have a shell.
+Processing /etc/passwd line: shaylynn:x:0:0::/home/shaylynn:/bin/false
+    Skipping user shaylynn.  They don't have a shell.
+Processing /etc/passwd line: martica:x:0:0::/home/martica:/bin/false
+    Skipping user martica.  They don't have a shell.
+Processing /etc/passwd line: claudie:x:0:0::/home/claudie:/bin/false
+    Skipping user claudie.  They don't have a shell.
+Processing /etc/passwd line: cyndie:x:0:0::/home/cyndie:/bin/false
+    Skipping user cyndie.  They don't have a shell.
+Processing /etc/passwd line: jodie:x:0:0::/home/jodie:/bin/false
+    Skipping user jodie.  They don't have a shell.
+Processing /etc/passwd line: beryl:x:0:0::/home/beryl:/bin/false
+    Skipping user beryl.  They don't have a shell.
+Processing /etc/passwd line: cairistiona:x:0:0::/home/cairistiona:/bin/false
+    Skipping user cairistiona.  They don't have a shell.
+Processing /etc/passwd line: dyan:x:0:0::/home/dyan:/bin/false
+    Skipping user dyan.  They don't have a shell.
+Processing /etc/passwd line: florry:x:0:0::/home/florry:/bin/false
+    Skipping user florry.  They don't have a shell.
+Processing /etc/passwd line: anna:x:0:0::/home/anna:/bin/false
+    Skipping user anna.  They don't have a shell.
+Processing /etc/passwd line: belicia:x:0:0::/home/belicia:/bin/false
+    Skipping user belicia.  They don't have a shell.
+Processing /etc/passwd line: cam:x:0:0::/home/cam:/bin/false
+    Skipping user cam.  They don't have a shell.
+Processing /etc/passwd line: zsa:x:0:0::/home/zsa:/bin/false
+    Skipping user zsa.  They don't have a shell.
+Processing /etc/passwd line: shandeigh:x:0:0::/home/shandeigh:/bin/false
+    Skipping user shandeigh.  They don't have a shell.
+Processing /etc/passwd line: coretta:x:0:0::/home/coretta:/bin/false
+    Skipping user coretta.  They don't have a shell.
+Processing /etc/passwd line: clarine:x:0:0::/home/clarine:/bin/false
+    Skipping user clarine.  They don't have a shell.
+Processing /etc/passwd line: beverly:x:0:0::/home/beverly:/bin/false
+    Skipping user beverly.  They don't have a shell.
+Processing /etc/passwd line: estrella:x:0:0::/home/estrella:/bin/false
+    Skipping user estrella.  They don't have a shell.
+Processing /etc/passwd line: brynn:x:0:0::/home/brynn:/bin/false
+    Skipping user brynn.  They don't have a shell.
+Processing /etc/passwd line: genni:x:0:0::/home/genni:/bin/false
+    Skipping user genni.  They don't have a shell.
+Processing /etc/passwd line: rosmunda:x:0:0::/home/rosmunda:/bin/false
+    Skipping user rosmunda.  They don't have a shell.
+Processing /etc/passwd line: michaelina:x:0:0::/home/michaelina:/bin/false
+    Skipping user michaelina.  They don't have a shell.
+Processing /etc/passwd line: catlin:x:0:0::/home/catlin:/bin/false
+    Skipping user catlin.  They don't have a shell.
+Processing /etc/passwd line: verena:x:0:0::/home/verena:/bin/false
+    Skipping user verena.  They don't have a shell.
+Processing /etc/passwd line: corabel:x:1002:1002::/home/corabel:/bin/false
+    Skipping user corabel.  They don't have a shell.
+Processing /etc/passwd line: ray:x:1003:1003::/home/ray:/bin/false
+    Skipping user ray.  They don't have a shell.
+Processing /etc/passwd line: ynez:x:1004:1004::/home/ynez:/bin/false
+    Skipping user ynez.  They don't have a shell.
+Processing /etc/passwd line: simonette:x:1005:1005::/home/simonette:/bin/false
+    Skipping user simonette.  They don't have a shell.
+Processing /etc/passwd line: ruthann:x:1006:1006::/home/ruthann:/bin/false
+    Skipping user ruthann.  They don't have a shell.
+Processing /etc/passwd line: zuzana:x:1007:1007::/home/zuzana:/bin/false
+    Skipping user zuzana.  They don't have a shell.
+Processing /etc/passwd line: ursa:x:1008:1008::/home/ursa:/bin/false
+    Skipping user ursa.  They don't have a shell.
+Processing /etc/passwd line: winona:x:1009:1009::/home/winona:/bin/false
+    Skipping user winona.  They don't have a shell.
+Processing /etc/passwd line: darrelle:x:1010:1010::/home/darrelle:/bin/false
+    Skipping user darrelle.  They don't have a shell.
+Processing /etc/passwd line: nell:x:1011:1011::/home/nell:/bin/false
+    Skipping user nell.  They don't have a shell.
+Processing /etc/passwd line: linn:x:1012:1012::/home/linn:/bin/false
+    Skipping user linn.  They don't have a shell.
+Processing /etc/passwd line: rhianna:x:1013:1013::/home/rhianna:/bin/false
+    Skipping user rhianna.  They don't have a shell.
+Processing /etc/passwd line: anselma:x:1014:1014::/home/anselma:/bin/false
+    Skipping user anselma.  They don't have a shell.
+Processing /etc/passwd line: kalinda:x:1015:1015::/home/kalinda:/bin/false
+    Skipping user kalinda.  They don't have a shell.
+Processing /etc/passwd line: nobody7:x:1016:1016::/home/nobody7:/bin/false
+    Skipping user nobody7.  They don't have a shell.
+Processing /etc/passwd line: wilie:x:1017:1017::/home/wilie:/bin/false
+    Skipping user wilie.  They don't have a shell.
+Processing /etc/passwd line: kara-lynn:x:1018:1018::/home/kara-lynn:/bin/false
+    Skipping user kara-lynn.  They don't have a shell.
+Processing /etc/passwd line: zarah:x:1019:1019::/home/zarah:/bin/false
+    Skipping user zarah.  They don't have a shell.
+Processing /etc/passwd line: alix:x:1020:1020::/home/alix:/bin/false
+    Skipping user alix.  They don't have a shell.
+Processing /etc/passwd line: kaylyn:x:1021:1021::/home/kaylyn:/bin/false
+    Skipping user kaylyn.  They don't have a shell.
+Processing /etc/passwd line: corly:x:1022:1022::/home/corly:/bin/false
+    Skipping user corly.  They don't have a shell.
+Processing /etc/passwd line: karyl:x:1023:1023::/home/karyl:/bin/false
+    Skipping user karyl.  They don't have a shell.
+Processing /etc/passwd line: jo:x:1024:1024::/home/jo:/bin/false
+    Skipping user jo.  They don't have a shell.
+Processing /etc/passwd line: ann:x:1025:1025::/home/ann:/bin/false
+    Skipping user ann.  They don't have a shell.
+Processing /etc/passwd line: con:x:1026:1026::/home/con:/bin/false
+    Skipping user con.  They don't have a shell.
+Processing /etc/passwd line: nevsa:x:1027:1027::/home/nevsa:/bin/false
+    Skipping user nevsa.  They don't have a shell.
+Processing /etc/passwd line: eveline:x:1028:1028::/home/eveline:/bin/false
+    Skipping user eveline.  They don't have a shell.
+Processing /etc/passwd line: chloette:x:1029:1029::/home/chloette:/bin/false
+    Skipping user chloette.  They don't have a shell.
+Processing /etc/passwd line: aila:x:1030:1030::/home/aila:/bin/false
+    Skipping user aila.  They don't have a shell.
+Processing /etc/passwd line: annalee:x:1031:1031::/home/annalee:/bin/false
+    Skipping user annalee.  They don't have a shell.
+Processing /etc/passwd line: trix:x:1032:1032::/home/trix:/bin/false
+    Skipping user trix.  They don't have a shell.
+Processing /etc/passwd line: theodosia:x:1033:1033::/home/theodosia:/bin/false
+    Skipping user theodosia.  They don't have a shell.
+Processing /etc/passwd line: fernandina:x:1034:1034::/home/fernandina:/bin/false
+    Skipping user fernandina.  They don't have a shell.
+Processing /etc/passwd line: valencia:x:1035:1035::/home/valencia:/bin/false
+    Skipping user valencia.  They don't have a shell.
+Processing /etc/passwd line: ilsa:x:1036:1036::/home/ilsa:/bin/false
+    Skipping user ilsa.  They don't have a shell.
+Processing /etc/passwd line: alberta:x:1037:1037::/home/alberta:/bin/false
+    Skipping user alberta.  They don't have a shell.
+Processing /etc/passwd line: aloysia:x:1038:1038::/home/aloysia:/bin/false
+    Skipping user aloysia.  They don't have a shell.
+Processing /etc/passwd line: niki:x:1039:1039::/home/niki:/bin/false
+    Skipping user niki.  They don't have a shell.
+Processing /etc/passwd line: buddha:x:1040:1040::/home/buddha:/bin/false
+    Skipping user buddha.  They don't have a shell.
+Processing /etc/passwd line: miley:x:1041:1041::/home/miley:/bin/false
+    Skipping user miley.  They don't have a shell.
+Processing /etc/passwd line: voyeurs:x:1042:1042::/home/voyeurs:/bin/bash
+    Checking if anyone except voyeurs can change /home/voyeurs
+
+############################################
+Checking for readable sensitive files in home directories
+############################################
+    Checking if anyone except root can read file /root/.ssh/authorized_keys
+    Checking if anyone except operator can read file /root/.ssh/authorized_keys
+    Checking if anyone except dockerd can read file /etc/docker/.bash_history
+WARNING: /etc/docker/.bash_history is in the home directory of dockerd. The group root can read /etc/docker/.bash_history
+    Checking if anyone except ansible can read file /home/ansible/.bash_history
+    Checking if anyone except voyeurs can read file /home/voyeurs/.ssh/authorized_keys
+    Checking if anyone except voyeurs can read file /home/voyeurs/.bash_history
+
+############################################
+Checking SUID programs
+############################################
+Skipping checks of SUID programs (it's slow!).  Run again in 'detailed' mode.
+
+############################################
+Checking for Private SSH Keys home directories
+############################################
+
+############################################
+Checking for Public SSH Keys home directories
+############################################
+WARNING: Public SSH Key Found in /root/.ssh/authorized_keys
+WARNING: Public SSH Key Found in /root/.ssh/authorized_keys
+WARNING: Public SSH Key Found in /home/voyeurs/.ssh/authorized_keys
+
+############################################
+Checking for SSH agents
+############################################
+No SSH agents found
+
+############################################
+Checking for GPG agents
+############################################
+No GPG agents found
+
+############################################
+Checking startup files (init.d / rc.d) aren't writable
+############################################
+Processing startup script /etc/init.d/asterisk
+    Checking if anyone except root can change /etc/init.d/asterisk
+Processing startup script /etc/init.d/dahdi
+    Checking if anyone except root can change /etc/init.d/dahdi
+Processing startup script /etc/init.d/fail2ban
+    Checking if anyone except root can change /etc/init.d/fail2ban
+Processing startup script /etc/init.d/filebeat
+    Checking if anyone except root can change /etc/init.d/filebeat
+Processing startup script /etc/init.d/functions
+    Checking if anyone except root can change /etc/init.d/functions
+Processing startup script /etc/init.d/netconsole
+    Checking if anyone except root can change /etc/init.d/netconsole
+Processing startup script /etc/init.d/network
+    Checking if anyone except root can change /etc/init.d/network
+Processing startup script /etc/init.d/README
+    Checking if anyone except root can change /etc/init.d/README
+Processing startup script /etc/init.d/sshd
+    Checking if anyone except root can change /etc/init.d/sshd
+Processing startup script /etc/rc.d/init.d
+    Checking if anyone except root can change /etc/rc.d/init.d
+Processing startup script /etc/rc.d/rc0.d
+    Checking if anyone except root can change /etc/rc.d/rc0.d
+Processing startup script /etc/rc.d/rc1.d
+    Checking if anyone except root can change /etc/rc.d/rc1.d
+Processing startup script /etc/rc.d/rc2.d
+    Checking if anyone except root can change /etc/rc.d/rc2.d
+Processing startup script /etc/rc.d/rc3.d
+    Checking if anyone except root can change /etc/rc.d/rc3.d
+Processing startup script /etc/rc.d/rc4.d
+    Checking if anyone except root can change /etc/rc.d/rc4.d
+Processing startup script /etc/rc.d/rc5.d
+    Checking if anyone except root can change /etc/rc.d/rc5.d
+Processing startup script /etc/rc.d/rc6.d
+    Checking if anyone except root can change /etc/rc.d/rc6.d
+Processing startup script /etc/rc.d/rc.local
+    Checking if anyone except root can change /etc/rc.d/rc.local
+
+############################################
+Checking if running programs are writable
+############################################
+------------------------
+PID:           1
+Owner:         root
+Program path:  /usr/lib/systemd/systemd
+    Checking if anyone except root can change /usr/lib/systemd/systemd
+------------------------
+PID:           10
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           11
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           1129
+Owner:         mysql
+Program path:  /usr/bin/bash
+    Checking if anyone except mysql can change /usr/bin/bash
+------------------------
+PID:           12
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           13
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           1311
+Owner:         mysql
+Program path:  /usr/libexec/mysqld
+    Checking if anyone except mysql can change /usr/libexec/mysqld
+------------------------
+PID:           132
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           1423
+Owner:         root
+Program path:  /usr/libexec/postfix/master
+    Checking if anyone except root can change /usr/libexec/postfix/master
+------------------------
+PID:           14293
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           1438
+Owner:         postfix
+Program path:  /usr/libexec/postfix/qmgr
+    Checking if anyone except postfix can change /usr/libexec/postfix/qmgr
+------------------------
+PID:           14464
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           15
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           15079
+Owner:         root
+Program path:  /usr/sbin/fcpconfig
+    Checking if anyone except root can change /usr/sbin/fcpconfig
+------------------------
+PID:           1525
+Owner:         mongodb
+Program path:  /usr/bin/mongod
+    Checking if anyone except mongodb can change /usr/bin/mongod
+------------------------
+PID:           16
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           16100
+Owner:         rpc
+Program path:  /usr/sbin/rpcbind
+    Checking if anyone except rpc can change /usr/sbin/rpcbind
+------------------------
+PID:           16785
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           1692
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           1693
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           17
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           1750
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           18
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           1829
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           18361
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           18388
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           18511
+Owner:         root
+Program path:  /usr/sbin/sshd
+    Checking if anyone except root can change /usr/sbin/sshd
+------------------------
+PID:           18513
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           18712
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           18977
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           19466
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           19534
+Owner:         root
+Program path:  /usr/sbin/sshd
+    Checking if anyone except root can change /usr/sbin/sshd
+------------------------
+PID:           19594
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           19617
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           19822
+Owner:         root
+Program path:  /usr/sbin/visudo
+    Checking if anyone except root can change /usr/sbin/visudo
+------------------------
+PID:           19823
+Owner:         root
+Program path:  /usr/bin/vi
+    Checking if anyone except root can change /usr/bin/vi
+------------------------
+PID:           19877
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           2
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           20
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           20046
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           20091
+Owner:         root
+Program path:  /usr/sbin/sshd
+    Checking if anyone except root can change /usr/sbin/sshd
+------------------------
+PID:           20121
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           2017
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           20243
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           20746
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           21
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           21143
+Owner:         asterisk
+Program path:  /usr/sbin/httpd
+    Checking if anyone except asterisk can change /usr/sbin/httpd
+------------------------
+PID:           21624
+Owner:         postfix
+Program path:  /usr/libexec/postfix/pickup
+    Checking if anyone except postfix can change /usr/libexec/postfix/pickup
+------------------------
+PID:           21627
+Owner:         root
+Program path:  /usr/sbin/sshd
+    Checking if anyone except root can change /usr/sbin/sshd
+------------------------
+PID:           21629
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           21808
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           22
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           2212
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           2215
+Owner:         asterisk
+Program path:  /usr/sbin/asterisk
+    Checking if anyone except asterisk can change /usr/sbin/asterisk
+------------------------
+PID:           22702
+Owner:         asterisk
+Program path:  /usr/bin/python2.7
+    Checking if anyone except asterisk can change /usr/bin/python2.7
+------------------------
+PID:           22710
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           22713
+Owner:         root
+Program path:  /usr/bin/python2.7
+    Checking if anyone except root can change /usr/bin/python2.7
+------------------------
+PID:           22715
+Owner:         root
+Program path:  /usr/libexec/gam_server
+    Checking if anyone except root can change /usr/libexec/gam_server
+------------------------
+PID:           22981
+Owner:         root
+Program path:  /usr/sbin/sshd
+    Checking if anyone except root can change /usr/sbin/sshd
+------------------------
+PID:           23
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           23466
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           25
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           25524
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           26
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           27
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           27305
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           27307
+Owner:         root
+Program path:  /usr/sbin/agetty
+    Checking if anyone except root can change /usr/sbin/agetty
+------------------------
+PID:           27939
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           28
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           28066
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           28395
+Owner:         root
+Program path:  /usr/sbin/sshd
+    Checking if anyone except root can change /usr/sbin/sshd
+------------------------
+PID:           28397
+Owner:         voyeurs
+Program path:  /usr/sbin/sshd
+    Checking if anyone except voyeurs can change /usr/sbin/sshd
+------------------------
+PID:           28411
+Owner:         voyeurs
+Program path:  /usr/bin/bash
+    Checking if anyone except voyeurs can change /usr/bin/bash
+------------------------
+PID:           28412
+Owner:         root
+Program path:  /usr/bin/sudo
+    Checking if anyone except root can change /usr/bin/sudo
+------------------------
+PID:           28413
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           28414
+Owner:         root
+Program path:  /usr/bin/python2.7
+    Checking if anyone except root can change /usr/bin/python2.7
+------------------------
+PID:           28415
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           28416
+Owner:         root
+Program path:  /usr/bin/bash
+    Checking if anyone except root can change /usr/bin/bash
+------------------------
+PID:           28417
+Owner:         root
+Program path:  /usr/bin/tee
+    Checking if anyone except root can change /usr/bin/tee
+------------------------
+PID:           3
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           30
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           31
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           32
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           320
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           326
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           327
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           328
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           329
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           33
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           330
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           334
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           335
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           336
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           35
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           36
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           37
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           38
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           40
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           41
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           413
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           414
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           42
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           425
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           426
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           43
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           439
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           440
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           441
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           442
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           443
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           444
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           445
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           446
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           447
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           448
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           449
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           45
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           47
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           48
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           49
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           491
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           492
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           5
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           50
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           509
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           51
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           510
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           511
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           52
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           53
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           531
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           532
+Owner:         root
+Program path:  /usr/lib/systemd/systemd-journald
+    Checking if anyone except root can change /usr/lib/systemd/systemd-journald
+------------------------
+PID:           54
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           558
+Owner:         root
+Program path:  /usr/sbin/lvmetad
+    Checking if anyone except root can change /usr/sbin/lvmetad
+------------------------
+PID:           566
+Owner:         root
+Program path:  /usr/lib/systemd/systemd-udevd
+    Checking if anyone except root can change /usr/lib/systemd/systemd-udevd
+------------------------
+PID:           57
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           6
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           64
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           645
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           65
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           651
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           652
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           66
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           669
+Owner:         root
+Program path:  /usr/sbin/auditd
+    Checking if anyone except root can change /usr/sbin/auditd
+------------------------
+PID:           67
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           699
+Owner:         root
+Program path:  /usr/sbin/irqbalance
+    Checking if anyone except root can change /usr/sbin/irqbalance
+------------------------
+PID:           7
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           705
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           719
+Owner:         root
+Program path:  /usr/sbin/incrond
+    Checking if anyone except root can change /usr/sbin/incrond
+------------------------
+PID:           721
+Owner:         polkitd
+Program path:  /usr/lib/polkit-1/polkitd
+    Checking if anyone except polkitd can change /usr/lib/polkit-1/polkitd
+------------------------
+PID:           722
+Owner:         avahi
+Program path:  /usr/sbin/avahi-daemon
+    Checking if anyone except avahi can change /usr/sbin/avahi-daemon
+------------------------
+PID:           724
+Owner:         root
+Program path:  /usr/sbin/rsyslogd
+    Checking if anyone except root can change /usr/sbin/rsyslogd
+------------------------
+PID:           725
+Owner:         root
+Program path:  /usr/lib/systemd/systemd-logind
+    Checking if anyone except root can change /usr/lib/systemd/systemd-logind
+------------------------
+PID:           726
+Owner:         dbus
+Program path:  /usr/bin/dbus-daemon
+    Checking if anyone except dbus can change /usr/bin/dbus-daemon
+------------------------
+PID:           75
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           7524
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           753
+Owner:         chrony
+Program path:  /usr/sbin/chronyd
+    Checking if anyone except chrony can change /usr/sbin/chronyd
+------------------------
+PID:           754
+Owner:         avahi
+Program path:  /usr/sbin/avahi-daemon
+    Checking if anyone except avahi can change /usr/sbin/avahi-daemon
+------------------------
+PID:           76
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           77
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           78
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           785
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           79
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           8
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           877
+Owner:         root
+Program path:  /usr/sbin/fcpconfig
+    Checking if anyone except root can change /usr/sbin/fcpconfig
+------------------------
+PID:           9
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           9354
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           966
+Owner:         root
+Program path:  /usr/sbin/rpcd
+    Checking if anyone except root can change /usr/sbin/rpcd
+------------------------
+PID:           974
+Owner:         nobody
+Program path:  /usr/sbin/dnsmasq
+    Checking if anyone except nobody can change /usr/sbin/dnsmasq
+------------------------
+PID:           98
+ERROR: Can't find full path of running program: 
+Owner:         root
+------------------------
+PID:           983
+Owner:         root
+Program path:  /usr/sbin/httpd
+    Checking if anyone except root can change /usr/sbin/httpd
+------------------------
+PID:           989
+Owner:         root
+Program path:  /usr/sbin/crond
+    Checking if anyone except root can change /usr/sbin/crond
+------------------------
+PID:           990
+Owner:         root
+Program path:  /usr/sbin/atd
+    Checking if anyone except root can change /usr/sbin/atd
+------------------------
+PID:           992
+Owner:         root
+Program path:  /usr/sbin/xinetd
+    Checking if anyone except root can change /usr/sbin/xinetd

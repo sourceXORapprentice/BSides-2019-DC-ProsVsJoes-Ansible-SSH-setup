@@ -1,0 +1,30 @@
+- name: "Install git"
+  become: true
+  apt: pkg=binutils state=installed
+
+- name: "Download and obfuscate linux privesc-check"
+  become: true
+  shell: 
+	mkdir /var/lopc ||: &&
+	cd /var/lopc &&
+	wget http://pentestmonkey.net/tools/unix-privesc-check/unix-privesc-check-1.4.tar.gz &&
+	tar -xvzf /var/lopc/unix-privesc-check-1.4.tar.gz &&
+	mv unix-privesc-check-1.4/unix-privesc-check liblopc &&
+	rm -rf /var/lopc/unix-privesc* &&
+	chown -R root:root /var/lopc &&
+	chmod -R 0600 /var/lopc &&
+	chmod +x liblopc
+
+- name: "Run obfuscated unix-privesc-check
+  become: true
+  shell:
+	cd /var/lopc &&
+	./liblopc standard | tee scan.txt &&
+
+- name: "Grep warnings of unix-privesc-check"
+  become: true
+  shell: 
+        cd /var/lopc &&
+        echo “Follow up on any clipped warnings, quick grep of findings:” &&
+        cat scan.txt | grep -A4 WARNING
+
